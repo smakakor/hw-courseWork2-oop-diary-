@@ -8,13 +8,17 @@ public class Schedule {
 
 
     public void addTask(Diary diary) {
-        task.put(diary.getId(),diary);
+        task.put(diary.getId(), diary);
+    }
+
+    public void addForDeleteTask(Diary diary) {
+        task.put(diary.getId(), diary);
     }
 
     public void deleteTask(int id) {
         this.task.remove(id);
-
     }
+
 
     public Collection<Diary> getTasksForDate(LocalDate date) {
         List<Diary> tasksForDate = new ArrayList<>();
@@ -23,11 +27,7 @@ public class Schedule {
             if (diary.appearsIn(date)) {
                 tasksForDate.add(diary);
             }
-            
         }
-
         return tasksForDate;
-
     }
-
 }
